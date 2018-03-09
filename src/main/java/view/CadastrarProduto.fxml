@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.crudProdutoController">
+   <children>
+      <TabPane fx:id="abas" layoutX="70.0" layoutY="47.0" onMouseClicked="#gerenciarAbas" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+        <tabs>
+          <Tab fx:id="cadastrar" closable="false" text="Cadastrar">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="nomeNovoProduto" layoutX="130.0" layoutY="47.0" prefHeight="25.0" prefWidth="426.0" />
+                        <Label layoutX="14.0" layoutY="14.0" text="Informe os dados do produto para cadastrar:" />
+                        <Label layoutX="27.0" layoutY="51.0" text="Nome:" />
+                        <DatePicker fx:id="fabricacaoNovoProduto" layoutX="132.0" layoutY="94.0" prefHeight="25.0" prefWidth="140.0" />
+                        <Label layoutX="27.0" layoutY="98.0" text="Data de fabricação:" />
+                        <Label layoutX="320.0" layoutY="98.0" text="Data de validade:" />
+                        <DatePicker fx:id="validadeNovoProduto" layoutX="416.0" layoutY="94.0" prefHeight="25.0" prefWidth="140.0" />
+                        <Label layoutX="27.0" layoutY="142.0" text="Quantidade:" />
+                        <TextField fx:id="qtdeNovoProduto" layoutX="132.0" layoutY="138.0" prefHeight="25.0" prefWidth="426.0" />
+                        <Label layoutX="27.0" layoutY="187.0" text="Preço:" />
+                        <TextField fx:id="precoNovoProduto" layoutX="129.0" layoutY="183.0" prefHeight="25.0" prefWidth="426.0" />
+                        <Button layoutX="224.0" layoutY="237.0" mnemonicParsing="false" onAction="#salvarCadastroNovoProduto" prefWidth="70.0" text="Salvar" />
+                        <Button layoutX="320.0" layoutY="237.0" mnemonicParsing="false" onAction="#limparCadastroNovoProduto" prefWidth="70.0" text="Limpar" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="consultar" closable="false" text="Consultar">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="21.0" layoutY="45.0" text="Nome:" />
+                        <TextField fx:id="consultarNomeProduto" layoutX="69.0" layoutY="41.0" prefWidth="406.0" />
+                        <Label layoutX="14.0" layoutY="14.0" text="Informe o nome do produto para consultar:" />
+                        <Button layoutX="487.0" layoutY="41.0" mnemonicParsing="false" onAction="#consultarProdutos" prefWidth="70.0" text="Consultar" />
+                        <TableView fx:id="tabelaConsultaProdutos" layoutX="69.0" layoutY="87.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0">
+                          <columns>
+                            <TableColumn fx:id="idConsultaProduto" editable="false" prefWidth="51.0" text="ID" />
+                            <TableColumn fx:id="nomeProduto" editable="false" prefWidth="171.0" text="Nome" />
+                              <TableColumn fx:id="fabricacaoConsultaProduto" editable="false" prefWidth="111.0" text="Data de fabricação" />
+                              <TableColumn fx:id="validadeConsultaProduto" editable="false" prefWidth="105.0" text="Data de validade" />
+                              <TableColumn fx:id="qtdeConsultaProduto" editable="false" minWidth="8.0" prefWidth="74.0" text="Quantidade" />
+                              <TableColumn fx:id="precoConsultaProduto" editable="false" minWidth="0.0" prefWidth="47.0" text="Preço" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="209.0" layoutY="268.0" mnemonicParsing="false" onAction="#exibirAbaAtualizar" prefWidth="70.0" text="Atualizar" />
+                        <Button layoutX="290.0" layoutY="268.0" mnemonicParsing="false" onAction="#deletarProduto" prefWidth="70.0" text="Deletar" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="atualizar" closable="false" text="Atualizar">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="27.0" layoutY="142.0" text="Quantidade:" />
+                        <TextField fx:id="precoProduto" layoutX="129.0" layoutY="183.0" prefHeight="25.0" prefWidth="426.0" />
+                        <Label layoutX="27.0" layoutY="51.0" text="Nome:" />
+                        <Label layoutX="27.0" layoutY="187.0" text="Preço:" />
+                        <Label layoutX="27.0" layoutY="98.0" text="Data de fabricação:" />
+                        <Label layoutX="320.0" layoutY="98.0" text="Data de validade:" />
+                        <DatePicker fx:id="fabricacaoProduto" layoutX="132.0" layoutY="94.0" prefHeight="25.0" prefWidth="140.0" />
+                        <DatePicker fx:id="validadeProduto" layoutX="416.0" layoutY="94.0" prefHeight="25.0" prefWidth="140.0" />
+                        <TextField fx:id="qtdeProduto" layoutX="132.0" layoutY="138.0" prefHeight="25.0" prefWidth="426.0" />
+                        <Button layoutX="272.0" layoutY="239.0" mnemonicParsing="false" onAction="#salvarCadastroProduto" prefWidth="70.0" text="Salvar" />
+                        <Label layoutX="14.0" layoutY="14.0" text="Atualize os dados do produto:" />
+                        <TextField fx:id="atualizarNomeProduto" layoutX="130.0" layoutY="47.0" prefHeight="25.0" prefWidth="426.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="10.0" layoutY="14.0" text="Produtos da Padaria Real" textAlignment="CENTER" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
